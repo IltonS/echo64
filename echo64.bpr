@@ -27,17 +27,17 @@
     <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
     <RELEASELIBPATH value="$(BCB)\lib\release"/>
     <LINKER value="ilink32"/>
-    <USERDEFINES value="_DEBUG"/>
-    <SYSDEFINES value="NO_STRICT;_NO_VCL;_RTLDLL;USEPACKAGES"/>
+    <USERDEFINES value=""/>
+    <SYSDEFINES value="NO_STRICT;_NO_VCL"/>
     <MAINSOURCE value="echo64.bpf"/>
-    <INCLUDEPATH value="&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;V:\echo64;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;V:\echo64;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <INCLUDEPATH value="res;&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;V:\echo64;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="res;&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;V:\echo64;$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
   <OPTIONS>
-    <IDLCFLAGS value="-I&quot;C:\Program Files\Borland\CBuilder6\Projects&quot; -IV:\echo64 
-      -I$(BCB)\include -I$(BCB)\include\vcl -src_suffix cpp -D_DEBUG -boa"/>
+    <IDLCFLAGS value="-Ires -I&quot;C:\Program Files\Borland\CBuilder6\Projects&quot; -IV:\echo64 
+      -I$(BCB)\include -I$(BCB)\include\vcl -src_suffix cpp -boa"/>
     <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -tWC 
       -tWM- -c"/>
     <PFLAGS value="-N2V:\echo64\Debug\obj -N0V:\echo64\Debug\obj -$YD -$W -$O- -$A8 -v -JPHNE 
@@ -48,16 +48,16 @@
     <OTHERFILES value=""/>
   </OPTIONS>
   <LINKER>
-    <ALLOBJ value="c0x32.obj $(PACKAGES) $(OBJFILES)"/>
+    <ALLOBJ value="c0x32.obj $(OBJFILES)"/>
     <ALLRES value="$(RESFILES)"/>
-    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cw32i.lib"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cw32.lib"/>
     <OTHERFILES value=""/>
   </LINKER>
   <FILELIST>
-      <FILE FILENAME="echo64.res" FORMNAME="" UNITNAME="echo64.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="echo64.bpf" FORMNAME="" UNITNAME="echo64" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="main.cpp" FORMNAME="" UNITNAME="main" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="rot64.cpp" FORMNAME="" UNITNAME="rot64" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="echo64.res" FORMNAME="" UNITNAME="" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>
@@ -66,11 +66,11 @@
 [Version Info]
 IncludeVerInfo=1
 AutoIncBuild=0
-MajorVer=0
+MajorVer=1
 MinorVer=0
 Release=0
 Build=0
-Debug=0
+Debug=1
 PreRelease=0
 Special=0
 Private=0
@@ -80,23 +80,27 @@ CodePage=1252
 
 [Version Info Keys]
 CompanyName=Videogeddon
-FileDescription=Displays a rotate by 64 places operation.
-FileVersion=0.0.0.0
+FileDescription=Simple letter substitution cipher
+FileVersion=1.0.0.0
 InternalName=
 LegalCopyright=Videogeddon
 LegalTrademarks=Videogeddon
 OriginalFilename=echo64.exe
-ProductName=Echo64 [Dev]
+ProductName=Echo64
 ProductVersion=1
 Comments=
 
 [HistoryLists\hlIncludePath]
-Count=1
-Item0=V:\echo64;$(BCB)\include;$(BCB)\include\vcl
+Count=3
+Item0=res;C:\Program Files\Borland\CBuilder6\Projects;V:\echo64;$(BCB)\include;$(BCB)\include\vcl
+Item1=C:\Program Files\Borland\CBuilder6\Projects;V:\echo64;$(BCB)\include;$(BCB)\include\vcl
+Item2=V:\echo64;$(BCB)\include;$(BCB)\include\vcl
 
 [HistoryLists\hlLibraryPath]
-Count=1
-Item0=V:\echo64;$(BCB)\lib\obj;$(BCB)\lib
+Count=3
+Item0=res;C:\Program Files\Borland\CBuilder6\Projects;V:\echo64;$(BCB)\lib\obj;$(BCB)\lib
+Item1=C:\Program Files\Borland\CBuilder6\Projects;V:\echo64;$(BCB)\lib\obj;$(BCB)\lib
+Item2=V:\echo64;$(BCB)\lib\obj;$(BCB)\lib
 
 [HistoryLists\hlDebugSourcePath]
 Count=1
@@ -111,8 +115,9 @@ Count=1
 Item0=V:\echo64\Debug\obj
 
 [HistoryLists\hlFinalOutputDir]
-Count=1
-Item0=V:\echo64\Debug
+Count=2
+Item0=V:\echo64\Debug\
+Item1=V:\echo64\Debug
 
 [HistoryLists\hIBPIOutputDir]
 Count=1
@@ -122,7 +127,7 @@ Item0=V:\echo64\libs
 DebugSourceDirs=$(BCB)\source\vcl
 
 [Parameters]
-RunParams=
+RunParams=-v
 Launcher=
 UseLauncher=0
 DebugCWD=
