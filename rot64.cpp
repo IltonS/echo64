@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstring>
 #include "rot64.h"
 
 namespace rot64
@@ -16,17 +17,20 @@ namespace rot64
          show_help();
       }
       else{
-         if ((std::string(argv[1]) == "-v") || (std::string(argv[1]) == "--version")){
+         string param = (char *)argv[1];
+
+         if ((param == "/V") || (param == "/v")){
             show_version();
-         }else if ((std::string(argv[1]) == "-h") || (std::string(argv[1]) == "--help")){
+         }else if (param == "/?"){
             show_help();
-         }else if ((std::string(argv[1]) == "-f") || (std::string(argv[1]) == "--file")){
-            ifstream file(argv[2]);
+         }else if ((param.substr(0,3) == "/F:" ) || (param.substr(0,3) == "/f:" )){
+            char* file_name;
+            strcpy(file_name, param.substr(3).c_str());
+            ifstream file(file_name);
             string line;
             while(std::getline(file, line)){
                cout << rot_64(line) << endl;
-            }
-
+            }//while
          }else{
             //Get message param-------------------------------------------------
             string message;
@@ -39,7 +43,6 @@ namespace rot64
                }
             }//i
             //------------------------------------------------------------------
-
             cout << rot_64(message) << endl;
          }
       }//!(argc==1)
@@ -61,15 +64,21 @@ namespace rot64
 
    void show_help(void)
    {
-      cout << "Usage: echo64 [-v | --version]" << endl;
-      cout << "              [-h | --help]" << endl;
-      cout << "              [-f | --file <source_file>]" << endl;
-      cout << "              [<message>]" << endl;
+      cout << "A simple character substitution cipher that replaces a character with the 64th character after it in the Standard ASCII table.\n" << endl;
+      cout << "ECHO64 [/V]" << endl;
+      cout << "       [/?]" << endl;
+      cout << "       [/F:file]" << endl;
+      cout << "       [message]\n" << endl;
+      cout << "  /V          Show program version." << endl;
+      cout << "  /?          Show program help." << endl;
+      cout << "  /F:file     Displays the encrypted contents of the file." << endl;
+      cout << "  message     Specifies a message to encrypt." << endl;
+
    }
 
    void show_version(void)
    {
-      cout << "echo64 version 1.0.0.0" << endl;
+      cout << "echo64 by IltonS - version 1.0.0.0" << endl;
    }
 }
 
