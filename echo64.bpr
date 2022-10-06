@@ -3,8 +3,8 @@
 <PROJECT>
   <MACROS>
     <VERSION value="BCB.06.00"/>
-    <PROJECT value="V:\echo64\Debug\echo64.exe"/>
-    <OBJFILES value="Debug\obj\main.obj Debug\obj\rot64.obj"/>
+    <PROJECT value="V:\echo64\Release\echo64.exe"/>
+    <OBJFILES value="Release\obj\main.obj Release\obj\rot64.obj"/>
     <RESFILES value="echo64.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -40,11 +40,11 @@
       -I$(BCB)\include -I$(BCB)\include\vcl -src_suffix cpp -boa"/>
     <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -tWC 
       -tWM- -c"/>
-    <PFLAGS value="-N2V:\echo64\Debug\obj -N0V:\echo64\Debug\obj -$YD -$W -$O- -$A8 -v -JPHNE 
-      -M"/>
+    <PFLAGS value="-N2V:\echo64\Release\obj -N0V:\echo64\Release\obj -$YD -$W -$O- -$A8 -v 
+      -JPHNE -M"/>
     <RFLAGS value=""/>
     <AFLAGS value="/mx /w2 /zd"/>
-    <LFLAGS value="-lV:\echo64\libs -IV:\echo64\Debug\obj -D&quot;&quot; -ap -Tpe -x -Gn -v"/>
+    <LFLAGS value="-lV:\echo64\libs -IV:\echo64\Release\obj -D&quot;&quot; -ap -Tpe -x -Gn -v"/>
     <OTHERFILES value=""/>
   </OPTIONS>
   <LINKER>
@@ -57,7 +57,7 @@
       <FILE FILENAME="echo64.bpf" FORMNAME="" UNITNAME="echo64" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="main.cpp" FORMNAME="" UNITNAME="main" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="rot64.cpp" FORMNAME="" UNITNAME="rot64" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="echo64.res" FORMNAME="" UNITNAME="" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="echo64.res" FORMNAME="" UNITNAME="echo64.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>
@@ -111,13 +111,15 @@ Count=1
 Item0=_DEBUG
 
 [HistoryLists\hlIntOutputDir]
-Count=1
-Item0=V:\echo64\Debug\obj
+Count=2
+Item0=V:\echo64\Release\obj
+Item1=V:\echo64\Debug\obj
 
 [HistoryLists\hlFinalOutputDir]
-Count=2
-Item0=V:\echo64\Debug\
-Item1=V:\echo64\Debug
+Count=3
+Item0=V:\echo64\Release\
+Item1=V:\echo64\Debug\
+Item2=V:\echo64\Debug
 
 [HistoryLists\hIBPIOutputDir]
 Count=1
