@@ -5,7 +5,7 @@ A simple character substitution cipher that replaces a character with the 64th c
 To use echo64 as a cmd or powershell command, just unzip echo64.exe and add it to your System32 folder. You can also create a unique folder for the program and add that folder to your PATH environment variable.
 
 ## Usage
-```
+```shell
 ECHO64 [/V] [/?] [/F:file] [message]
 ```
 
@@ -22,17 +22,25 @@ Displays the encrypted contents of the file.
 Specifies a message to encrypt.
 
 ## Examples
-```
-C:\>echo64 Hello
-w6==@
+Simple usage just passing a string to encrypt or decrypt.
+
+
+```shell
+> echo64 Hello
+> w6==@
+> 
+> echo64 w6==@
+> Hello
 ```
 
-```
-C:\>echo64 Hello From File > Hello.txt
+Encrypts a string and saves it to a file. Then use echo64 to read the encrypted contents of the file.
 
-C:\>type Hello.txt
-w6==@OuC@>Ou:=6
-
-C:\>echo64 /F:Hello.txt
-Hello From File
+```shell
+> echo64 Hello From File > Hello.txt
+> 
+> type Hello.txt
+> w6==@OuC@>Ou:=6
+>
+> echo64 /F:Hello.txt
+> Hello From File
 ```
